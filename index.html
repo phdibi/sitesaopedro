@@ -517,8 +517,13 @@
 
         @media (max-width: 768px) {
             .video-container {
-                aspect-ratio: 4 / 3;
-                max-height: 400px;
+                aspect-ratio: 16 / 9;
+                max-height: none;
+            }
+
+            .video-container video {
+                object-fit: contain;
+                background: var(--couro-escuro);
             }
 
             .video-overlay {
@@ -687,31 +692,63 @@
 
         @media (max-width: 768px) {
             .about {
-                padding: 60px 20px;
+                padding: 60px 15px;
             }
 
-            .pyramid-top .about-image {
-                width: 240px;
-                height: 240px;
-            }
-
-            .pyramid-bottom .about-image {
-                width: 160px;
-                height: 160px;
+            .about-images-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                padding: 20px 10px;
+                width: 100%;
             }
 
             .pyramid-top {
-                margin-bottom: -30px;
+                margin-bottom: 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .pyramid-bottom {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .pyramid-top .about-image {
+                width: 200px;
+                height: 200px;
+                max-width: 60vw;
+            }
+
+            .pyramid-bottom .about-image {
+                width: 140px;
+                height: 140px;
+                max-width: 40vw;
+            }
+
+            .about-image img {
+                object-fit: cover;
+                object-position: center top;
             }
 
             .seal-badge-generations {
-                width: 110px;
-                height: 110px;
-                margin-top: -20px;
+                width: 100px;
+                height: 100px;
+                margin-top: 10px;
             }
 
             .seal-badge-generations .seal-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .seal-badge-generations .seal-text {
+                font-size: 0.65rem;
             }
         }
 
@@ -841,9 +878,6 @@
             will-change: transform;
             border: 3px solid var(--terra-seca);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
             display: flex;
             flex-direction: column;
         }
@@ -2599,13 +2633,15 @@
             }
 
             .animal-card img {
-                height: 180px;
+                height: auto;
                 width: 100%;
+                object-fit: contain;
+                background-color: rgba(61, 40, 23, 0.05);
             }
 
             .animal-card.touros img {
-                height: 200px;
-                object-fit: cover;
+                height: auto;
+                object-fit: contain;
             }
 
             .animal-info {
@@ -2678,11 +2714,14 @@
             }
 
             .semen-image {
-                height: 150px;
+                height: auto;
+                object-fit: contain;
+                background-color: rgba(61, 40, 23, 0.05);
             }
 
             .semen-image-container {
-                height: 150px;
+                height: auto;
+                overflow: visible;
             }
 
             .btn-semen {
@@ -2742,7 +2781,9 @@
             }
 
             .auction-gallery-preview img {
-                height: 250px;
+                height: auto;
+                object-fit: contain;
+                background-color: rgba(61, 40, 23, 0.05);
             }
 
             .auction-cta {
@@ -3223,7 +3264,7 @@
             </div>
 
             <div class="animals-grid">
-                <a href="#animais-premiados" class="animal-card touros">
+                <div class="animal-card touros">
                     <img src="touros rep.jpeg" alt="Touro Hereford reprodutor da Fazenda São Pedro" loading="lazy"
                         width="600" height="200">
                     <div class="animal-info">
@@ -3244,8 +3285,8 @@
                         <p class="mt-2">Vendemos touros Hereford e Braford a partir de 20 meses de idade, já com
                             registro e atestado andrológico.</p>
                     </div>
-                </a>
-                <a href="#animais-premiados" class="animal-card matrizes">
+                </div>
+                <div class="animal-card matrizes">
                     <img src="./matrizes.jpeg" alt="Matriz Braford selecionada da Fazenda São Pedro" loading="lazy"
                         width="600" height="200">
                     <div class="animal-info">
@@ -3255,8 +3296,8 @@
                             quem busca incrementar seu plantel ou iniciar nas raças.</p>
                         <p>A seleção de fêmeas também passa pelo crivo criterioso de fenótipo e avaliações.</p>
                     </div>
-                </a>
-                <a href="#animais-premiados" class="animal-card terneiros">
+                </div>
+                <div class="animal-card terneiros">
                     <img src="./terneiros.jpeg" alt="Terneiros de qualidade da Fazenda São Pedro" loading="lazy"
                         width="600" height="200">
                     <div class="animal-info">
@@ -3265,7 +3306,7 @@
                             desmame. Comercializados em uma demanda exigente, que busca animais padronizados, com
                             indicadores de desempenho, eficiência e boa base genética.</p>
                     </div>
-                </a>
+                </div>
             </div>
 
             <article class="featured-animal" id="animais-premiados">
