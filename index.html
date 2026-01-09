@@ -1169,19 +1169,24 @@
         }
 
         .lightbox-content {
-            max-width: 1200px;
+            max-width: 90vw;
             max-height: 90vh;
             position: relative;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .lightbox-content img {
-            max-width: 100%;
-            max-height: calc(90vh - 150px);
+            width: auto;
+            height: auto;
+            max-width: 90vw;
+            max-height: calc(80vh - 100px);
+            min-height: 200px;
             object-fit: contain;
             border: 5px solid var(--ocre-queimado);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            display: block;
         }
 
         .lightbox-caption {
@@ -3011,7 +3016,9 @@
             }
 
             .lightbox-content img {
-                max-height: calc(90vh - 200px);
+                max-width: 85vw;
+                max-height: calc(70vh - 100px);
+                min-height: 150px;
             }
 
             .lightbox-caption {
@@ -3271,7 +3278,7 @@
         <a href="#sobre" class="mobile-link">Nossa História</a>
         <a href="#animais" class="mobile-link">Nossos Animais</a>
         <a href="#leiloes" class="mobile-link">Leilões</a>
-        <a href="#genetica" class="mobile-link">Genética</a>
+        <a href="#semen" class="mobile-link">Genética</a>
         <a href="#contato" class="mobile-link">Contato</a>
     </div>
 
