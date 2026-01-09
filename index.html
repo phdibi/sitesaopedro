@@ -161,6 +161,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Performance: Contenção de layout para imagens */
@@ -171,6 +172,7 @@
         }
 
         body {
+            overflow-x: hidden;
             font-family: 'Bitter', 'Georgia', serif;
             background-color: var(--papel-kraft);
             background-image:
@@ -2436,39 +2438,356 @@
             }
         }
 
+        /* Menu Hamburger Mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--papel-kraft);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(61, 40, 23, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 80px 20px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--papel-kraft);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--ocre-queimado);
+        }
+
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
             .nav-links {
                 display: none;
             }
 
+            nav {
+                padding: 0 20px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+
+            .logo-text span {
+                font-size: 0.6rem;
+                letter-spacing: 2px;
+            }
+
+            .hero {
+                padding: 0 15px;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                word-wrap: break-word;
             }
 
             .hero h2 {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .hero-badge {
+                padding: 8px 20px;
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 15px 30px;
+                font-size: 0.8rem;
+                display: block;
+                width: 100%;
+                max-width: 280px;
+                margin: 10px auto;
+                text-align: center;
             }
 
             .btn-secondary {
-                display: block;
-                margin: 20px auto 0;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             section {
-                padding: 80px 20px;
+                padding: 60px 15px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                word-wrap: break-word;
             }
 
+            .section-header p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+
+            /* Cards de Animais */
             .animals-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .animal-card {
+                margin: 0;
+            }
+
+            .animal-card img {
+                height: 180px;
+                width: 100%;
+            }
+
+            .animal-card.touros img {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .animal-info {
+                padding: 20px 15px;
+            }
+
+            .animal-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .animal-info p {
+                font-size: 0.9rem;
+            }
+
+            .animal-features-list {
+                font-size: 0.85rem;
+            }
+
+            .animal-features-list li {
+                padding-left: 15px;
+            }
+
+            /* Galeria de prêmios */
+            .gallery-item img {
+                height: 220px;
+            }
+
+            .gallery-overlay {
+                padding: 20px 15px 15px;
+            }
+
+            .gallery-overlay h4 {
+                font-size: 1rem;
+            }
+
+            .gallery-overlay p {
+                font-size: 0.8rem;
+            }
+
+            /* Featured animal */
+            .featured-animal {
+                padding: 25px 20px;
+                margin: 40px 10px;
+            }
+
+            .featured-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .featured-content p {
+                font-size: 0.9rem;
+            }
+
+            /* Seção de Sêmen */
+            .semen-section {
+                padding: 60px 15px;
+            }
+
+            .semen-grid {
+                gap: 25px;
+                margin-top: 40px;
+            }
+
+            .semen-card {
+                padding: 30px 20px;
+            }
+
+            .semen-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .semen-image {
+                height: 150px;
+            }
+
+            .semen-image-container {
+                height: 150px;
+            }
+
+            .btn-semen {
+                padding: 14px 30px;
+                font-size: 0.85rem;
+            }
+
+            /* Doadoras */
+            .doadoras-section {
+                padding: 60px 15px;
+            }
+
+            .doadora-card img {
+                height: 220px;
+            }
+
+            .doadora-info {
+                padding: 15px;
+            }
+
+            .doadora-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .doadora-info p {
+                font-size: 0.85rem;
+            }
+
+            .doadoras-cta {
+                padding: 30px 20px;
+                margin: 40px 10px 0;
+            }
+
+            .doadoras-cta h3 {
+                font-size: 1.3rem;
+            }
+
+            /* Leilões */
+            .auction-card {
+                margin: 0 5px;
+            }
+
+            .auction-header {
+                padding: 25px 20px 20px;
+            }
+
+            .auction-header h3 {
+                font-size: 1.6rem;
+            }
+
+            .auction-content {
+                padding: 25px 20px;
+            }
+
+            .auction-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .auction-gallery-preview img {
+                height: 250px;
+            }
+
+            .auction-cta {
+                padding: 40px 20px;
+                margin: 0 10px;
+            }
+
+            .auction-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            /* App Section */
+            .app-section {
+                padding: 60px 15px;
+            }
+
+            .app-content {
+                gap: 40px;
+            }
+
+            .app-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .app-features li {
+                font-size: 0.95rem;
+                padding-left: 30px;
+            }
+
+            /* Summary */
+            .summary-section {
+                padding: 60px 15px;
             }
 
             .summary-highlights {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+
+            .summary-item h4 {
+                font-size: 1rem;
+            }
+
+            .summary-item p {
+                font-size: 0.85rem;
             }
 
             .summary-content h2 {
@@ -2611,6 +2930,131 @@
                 top: -40px;
                 right: 20px;
             }
+
+            /* Contact */
+            .contact {
+                padding: 60px 15px;
+            }
+
+            .contact-grid {
+                gap: 40px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-item {
+                gap: 15px;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .contact-form h3 {
+                font-size: 1.4rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 50px 15px 30px;
+            }
+
+            .footer-brand h3 {
+                font-size: 1.4rem;
+            }
+
+            .footer-brand p {
+                font-size: 0.9rem;
+            }
+
+            .footer-links h4 {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-bottom {
+                margin-top: 40px;
+                padding-top: 25px;
+            }
+
+            .footer-bottom .social-links {
+                margin-right: 0;
+            }
+
+            /* About Section Mobile */
+            .about-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .about-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Extra small devices (phones, 480px and down) */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .hero-badge {
+                padding: 6px 15px;
+                font-size: 0.65rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 25px;
+                font-size: 0.75rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-badge {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+
+            .summary-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .app-phone.phone-2,
+            .app-phone.phone-3 {
+                display: none;
+            }
+
+            .app-phone.phone-1 {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin: 0 auto;
+            }
+
+            .app-images {
+                height: auto;
+            }
         }
 
         @keyframes fadeInUp {
@@ -2676,8 +3120,23 @@
                 <li><a href="#genetica">Genética</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle" aria-label="Menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Início</a>
+        <a href="#sobre" class="mobile-link">Nossa História</a>
+        <a href="#animais" class="mobile-link">Nossos Animais</a>
+        <a href="#leiloes" class="mobile-link">Leilões</a>
+        <a href="#genetica" class="mobile-link">Genética</a>
+        <a href="#contato" class="mobile-link">Contato</a>
+    </div>
 
     <main>
         <section class="hero" id="home" aria-label="Página inicial">
@@ -3448,6 +3907,35 @@
     </div>
 
     <script>
+        // Menu Hamburger Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Fechar menu ao clicar em um link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Fechar menu com tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
         // Lightbox Gallery
         const galleryImages = [
             {
