@@ -1207,8 +1207,8 @@
 
         .lightbox-close {
             position: absolute;
-            top: -50px;
-            right: 0;
+            top: 20px;
+            right: 20px;
             background: var(--ferrugem);
             color: var(--papel-kraft);
             border: none;
@@ -1218,6 +1218,7 @@
             cursor: pointer;
             transition: background 0.3s ease;
             border: 3px solid var(--ocre-queimado);
+            z-index: 10;
         }
 
         .lightbox-close:hover {
@@ -1236,6 +1237,7 @@
             font-size: 2rem;
             cursor: pointer;
             transition: background 0.3s ease;
+            z-index: 10;
         }
 
         .lightbox-nav:hover {
@@ -1243,11 +1245,11 @@
         }
 
         .lightbox-prev {
-            left: 20px;
+            left: 30px;
         }
 
         .lightbox-next {
-            right: 20px;
+            right: 30px;
         }
 
         .other-awards-section {
@@ -2975,6 +2977,8 @@
             .footer-links h4 {
                 font-size: 0.85rem;
                 margin-bottom: 12px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .footer-links a {
@@ -4043,10 +4047,10 @@
 
     <!-- Lightbox para Galeria -->
     <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
         <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
-            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
             <img id="lightbox-img" src="" alt="">
             <div class="lightbox-caption">
                 <h3 id="lightbox-title"></h3>
