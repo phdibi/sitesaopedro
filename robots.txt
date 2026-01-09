@@ -1,0 +1,36 @@
+# Fazenda São Pedro - robots.txt
+# Otimizado para buscadores e agentes de IA
+
+User-agent: *
+Allow: /
+
+# Permitir todos os crawlers de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://fazendasaopedro.com.br/sitemap.xml
