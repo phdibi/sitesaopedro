@@ -3466,14 +3466,14 @@
             </article>
 
             <div class="awards-gallery">
-                <div class="gallery-item premio-1" onclick="openLightbox(0)">
+                <div class="gallery-item premio-1" data-gallery="main" data-index="0">
                     <img src="trio-po.jpeg" alt="Trio Reservado Grande Campeão Machos" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Grande Campeão Terneiros e Trio Grande Campeão Machos Hereford PO</h4>
                         <p>Exposição Nacional 2024 e Expointer 2024</p>
                     </div>
                 </div>
-                <div class="gallery-item premio-2" onclick="openLightbox(1)">
+                <div class="gallery-item premio-2" data-gallery="main" data-index="1">
                     <img src="homero.jpeg" alt="Touro premiado com faixa" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Supremo Campeão Terneiro Rústico, Supremo Campeão Macho Rústico e Quarto Melhor Macho Argola
@@ -3481,28 +3481,28 @@
                         <p>Exposição Nacional 2024 e Expointer 2024/25</p>
                     </div>
                 </div>
-                <div class="gallery-item premio-3" onclick="openLightbox(2)">
+                <div class="gallery-item premio-3" data-gallery="main" data-index="2">
                     <img src="trio-femeas-pc.jpeg" alt="Matriz Braford premiada" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Grande Campeão Terneiras Hereford</h4>
                         <p>Exposição Nacional 2024</p>
                     </div>
                 </div>
-                <div class="gallery-item premio-4" onclick="openLightbox(3)">
+                <div class="gallery-item premio-4" data-gallery="main" data-index="3">
                     <img src="trio-braford.jpeg" alt="Animal em pista de julgamento" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Reservado Grande Campeão Machos Braford</h4>
                         <p>Exposição Nacional 2024</p>
                     </div>
                 </div>
-                <div class="gallery-item premio-5" onclick="openLightbox(4)">
+                <div class="gallery-item premio-5" data-gallery="main" data-index="4">
                     <img src="renata.jpg" alt="Touro Hereford premiado" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Terceira Melhor Fêmea Braford</h4>
                         <p>Exposição Nacional 2023</p>
                     </div>
                 </div>
-                <div class="gallery-item premio-6" onclick="openLightbox(5)">
+                <div class="gallery-item premio-6" data-gallery="main" data-index="5">
                     <img src="terceira-melhor-femea-2025.jpg"
                         alt="Terceira Melhor Fêmea Rústica do Congresso Mundial Braford 2025" loading="lazy">
                     <div class="gallery-overlay">
@@ -3519,28 +3519,28 @@
                 </div>
                 <h3 class="other-awards-title">Entre outros...</h3>
                 <div class="other-awards-gallery">
-                    <div class="other-award-item" onclick="openOtherLightbox(0)">
-                        <img src="./helena.jpeg" alt="Grande Campeã Terneira Hereford PO - Exposição Nacional 2024"
+                    <div class="other-award-item" data-gallery="other" data-index="0">
+                        <img src="helena.jpeg" alt="Grande Campeã Terneira Hereford PO - Exposição Nacional 2024"
                             loading="lazy">
                     </div>
-                    <div class="other-award-item" onclick="openOtherLightbox(1)">
-                        <img src="./trio-gc-pc-nac-23.jpeg"
+                    <div class="other-award-item" data-gallery="other" data-index="1">
+                        <img src="trio-gc-pc-nac-23.jpeg"
                             alt="Trio Grande Campeão Hereford PC - Exposição Nacional 2023" loading="lazy">
                     </div>
-                    <div class="other-award-item" onclick="openOtherLightbox(2)">
-                        <img src="./braford3.jpeg" alt="Terceiro Melhor Macho Braford - Exposição Nacional 2024"
+                    <div class="other-award-item" data-gallery="other" data-index="2">
+                        <img src="braford3.jpeg" alt="Terceiro Melhor Macho Braford - Exposição Nacional 2024"
                             loading="lazy">
                     </div>
-                    <div class="other-award-item" onclick="openOtherLightbox(3)">
-                        <img src="./faconaco.jpeg"
+                    <div class="other-award-item" data-gallery="other" data-index="3">
+                        <img src="faconaco.jpeg"
                             alt="Integrante do Trio Grande Campeão Terneiro Hereford PC - Nacional 2022" loading="lazy">
                     </div>
-                    <div class="other-award-item" onclick="openOtherLightbox(4)">
-                        <img src="./suprema-campea-rustica.jpg"
+                    <div class="other-award-item" data-gallery="other" data-index="4">
+                        <img src="suprema-campea-rustica.jpg"
                             alt="Suprema Campeã Terneira Rústica - Exposição Nacional 2022" loading="lazy">
                     </div>
-                    <div class="other-award-item" onclick="openOtherLightbox(5)">
-                        <img src="./trio-femeas.jpeg"
+                    <div class="other-award-item" data-gallery="other" data-index="5">
+                        <img src="trio-femeas.jpeg"
                             alt="Trio Grande Campeão Terneiras Hereford - Exposição Nacional 2022" loading="lazy">
                     </div>
                 </div>
@@ -4300,11 +4300,28 @@
             document.body.appendChild(script);
         }
 
-        // Expose functions to global scope for HTML onclick handlers
+        // Expose functions to global scope (fallback)
         window.openLightbox = openLightbox;
         window.openOtherLightbox = openOtherLightbox;
         window.closeLightbox = closeLightbox;
         window.changeImage = changeImage;
+
+        // ROBUST: Attach event listeners via JavaScript (works in production/Vercel)
+        // Main gallery items
+        document.querySelectorAll('.gallery-item[data-gallery="main"]').forEach(item => {
+            item.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'), 10);
+                openLightbox(index);
+            });
+        });
+
+        // Other gallery items
+        document.querySelectorAll('.other-award-item[data-gallery="other"]').forEach(item => {
+            item.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'), 10);
+                openOtherLightbox(index);
+            });
+        });
 
         // Preconnect para recursos externos
         const preconnect = document.createElement('link');
