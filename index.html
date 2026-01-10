@@ -1439,7 +1439,7 @@
         }
 
         .semen-card:hover .semen-image {
-            transform: none;
+            transform: none !important;
         }
 
         /* Ajustes finos de enquadramento para imagens de sêmen */
@@ -2404,6 +2404,22 @@
         .footer-links a:hover {
             color: var(--papel-kraft);
             padding-left: 5px;
+        }
+
+        /* Centralizar colunas específicas do footer (Navegação e Animais) */
+        .footer-links-container> :nth-child(1),
+        .footer-links-container> :nth-child(2) {
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Garantir que a linha decorativa abaixo do título também centralize */
+        .footer-links-container> :nth-child(1) h4,
+        .footer-links-container> :nth-child(2) h4 {
+            width: auto;
+            /* Permitir que o width se ajuste ao conteúdo para centralizar borda se necessário, ou manter fixo */
+            border-bottom: 2px solid var(--terra-seca);
+            /* Reafirmar borda */
         }
 
         .footer-bottom {
@@ -4276,6 +4292,12 @@
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
             document.body.appendChild(script);
         }
+
+        // Expose functions to global scope for HTML onclick handlers
+        window.openLightbox = openLightbox;
+        window.openOtherLightbox = openOtherLightbox;
+        window.closeLightbox = closeLightbox;
+        window.changeImage = changeImage;
 
         // Preconnect para recursos externos
         const preconnect = document.createElement('link');
