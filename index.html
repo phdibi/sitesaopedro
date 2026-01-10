@@ -2343,6 +2343,8 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
             width: 100%;
+            justify-items: center;
+            /* Center each column's content */
         }
 
         .footer-brand h3 {
@@ -2411,26 +2413,20 @@
             padding-left: 5px;
         }
 
-        /* Centralizar colunas específicas do footer (Navegação e Animais) */
-        .footer-links-container> :nth-child(1) {
-            align-items: center;
-            text-align: center;
-            padding-left: 10px;
-            /* Shift Navegação more to the right, closer to Animais */
-        }
-
-        .footer-links-container> :nth-child(2) {
+        /* Centralizar TODAS as três colunas do footer (Desktop) */
+        .footer-links-container> :nth-child(1),
+        .footer-links-container> :nth-child(2),
+        .footer-links-container> :nth-child(3) {
             align-items: center;
             text-align: center;
         }
 
         /* Garantir que a linha decorativa abaixo do título também centralize */
         .footer-links-container> :nth-child(1) h4,
-        .footer-links-container> :nth-child(2) h4 {
+        .footer-links-container> :nth-child(2) h4,
+        .footer-links-container> :nth-child(3) h4 {
             width: auto;
-            /* Permitir que o width se ajuste ao conteúdo para centralizar borda se necessário, ou manter fixo */
             border-bottom: 2px solid var(--terra-seca);
-            /* Reafirmar borda */
         }
 
         .footer-bottom {
