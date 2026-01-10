@@ -1425,17 +1425,19 @@
 
         .semen-image {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            /* Changed back to cover to remove white bars */
+            height: auto;
+            /* Adapt to image proportions */
+            object-fit: contain;
+            /* Show full image without cropping */
             object-position: center center;
             margin-bottom: 0;
-            background-color: #f8f8f8;
+            background-color: var(--couro-escuro);
+            /* Match card background */
             border: 3px solid var(--ocre-queimado);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             position: relative;
             z-index: 1;
-            /* transition: transform 0.3s ease; Removed to prevent zoom effect */
+            /* No transition to prevent zoom effect */
             display: block;
         }
 
@@ -1459,8 +1461,10 @@
         .semen-image-container {
             position: relative;
             margin-bottom: 25px;
-            overflow: hidden;
-            height: 180px;
+            overflow: visible;
+            /* Allow full image to show */
+            height: auto;
+            /* Adapt to image */
         }
 
         .semen-image-caption {
@@ -2411,8 +2415,8 @@
         .footer-links-container> :nth-child(1) {
             align-items: center;
             text-align: center;
-            padding-left: 90px;
-            /* Shift Navegação slightly right */
+            padding-left: 130px;
+            /* Shift Navegação more to the right, closer to Animais */
         }
 
         .footer-links-container> :nth-child(2) {
