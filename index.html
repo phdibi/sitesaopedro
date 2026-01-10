@@ -1821,11 +1821,16 @@
             letter-spacing: 2px;
         }
 
+        .auction-gallery-preview {
+            background: var(--couro-escuro);
+        }
+
         .auction-gallery-preview img {
             width: 100%;
             height: 350px;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
+            background: var(--couro-escuro);
         }
 
         .auction-card:hover .auction-gallery-preview img {
@@ -2318,7 +2323,8 @@
         .footer-links-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 60px;
+            justify-items: start;
         }
 
         .footer-brand h3 {
@@ -2348,7 +2354,7 @@
             font-size: 0.9rem;
             font-style: italic;
             line-height: 1.6;
-            text-align: center;
+            text-align: left;
         }
 
         .footer-links {
@@ -3261,7 +3267,7 @@
                 <li><a href="#sobre">Nossa História</a></li>
                 <li><a href="#animais">Nossos Animais</a></li>
                 <li><a href="#leiloes">Leilões</a></li>
-                <li><a href="#genetica">Genética</a></li>
+                <li><a href="#semen">Genética</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle" aria-label="Menu" role="button" tabindex="0">
@@ -3305,9 +3311,6 @@
                     <source src="video.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos HTML5.
                 </video>
-                <div class="video-overlay">
-                    <h3>Paixão que nos move</h3>
-                </div>
             </div>
         </section>
 
@@ -3423,14 +3426,14 @@
 
             <div class="awards-gallery">
                 <div class="gallery-item premio-1" onclick="openLightbox(0)">
-                    <img src="Trio PO.jpeg" alt="Trio Reservado Grande Campeão Machos" loading="lazy">
+                    <img src="./Trio PO.jpeg" alt="Trio Reservado Grande Campeão Machos" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Grande Campeão Terneiros e Trio Grande Campeão Machos Hereford PO</h4>
                         <p>Exposição Nacional 2024 e Expointer 2024</p>
                     </div>
                 </div>
                 <div class="gallery-item premio-2" onclick="openLightbox(1)">
-                    <img src="Homero.jpeg" alt="Touro premiado com faixa" loading="lazy">
+                    <img src="./Homero.jpeg" alt="Touro premiado com faixa" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Supremo Campeão Terneiro Rústico, Supremo Campeão Macho Rústico e Quarto Melhor Macho Argola
                             Hereford PO</h4>
@@ -3438,28 +3441,28 @@
                     </div>
                 </div>
                 <div class="gallery-item premio-3" onclick="openLightbox(2)">
-                    <img src="Trio femeas PC.jpeg" alt="Matriz Braford premiada" loading="lazy">
+                    <img src="./Trio femeas PC.jpeg" alt="Matriz Braford premiada" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Grande Campeão Terneiras Hereford</h4>
                         <p>Exposição Nacional 2024</p>
                     </div>
                 </div>
                 <div class="gallery-item premio-4" onclick="openLightbox(3)">
-                    <img src="trio braford.jpeg" alt="Animal em pista de julgamento" loading="lazy">
+                    <img src="./trio braford.jpeg" alt="Animal em pista de julgamento" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trio Reservado Grande Campeão Machos Braford</h4>
                         <p>Exposição Nacional 2024</p>
                     </div>
                 </div>
                 <div class="gallery-item premio-5" onclick="openLightbox(4)">
-                    <img src="Renata.jpg" alt="Touro Hereford premiado" loading="lazy">
+                    <img src="./Renata.jpg" alt="Touro Hereford premiado" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Terceira Melhor Fêmea Braford</h4>
                         <p>Exposição Nacional 2023</p>
                     </div>
                 </div>
                 <div class="gallery-item premio-6" onclick="openLightbox(5)">
-                    <img src="terceira-melhor-femea-2025.jpg"
+                    <img src="./terceira-melhor-femea-2025.jpg"
                         alt="Terceira Melhor Fêmea Rústica do Congresso Mundial Braford 2025" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Terceira Melhor Fêmea Rústica e Reservada Grande Campeã Rústica</h4>
@@ -3476,27 +3479,27 @@
                 <h3 class="other-awards-title">Entre outros...</h3>
                 <div class="other-awards-gallery">
                     <div class="other-award-item" onclick="openOtherLightbox(0)">
-                        <img src="Helena.jpeg" alt="Grande Campeã Terneira Hereford PO - Exposição Nacional 2024"
+                        <img src="./Helena.jpeg" alt="Grande Campeã Terneira Hereford PO - Exposição Nacional 2024"
                             loading="lazy">
                     </div>
                     <div class="other-award-item" onclick="openOtherLightbox(1)">
-                        <img src="trioGCpcnac23.jpeg" alt="Trio Grande Campeão Hereford PC - Exposição Nacional 2023"
+                        <img src="./trioGCpcnac23.jpeg" alt="Trio Grande Campeão Hereford PC - Exposição Nacional 2023"
                             loading="lazy">
                     </div>
                     <div class="other-award-item" onclick="openOtherLightbox(2)">
-                        <img src="braford3.jpeg" alt="Terceiro Melhor Macho Braford - Exposição Nacional 2024"
+                        <img src="./braford3.jpeg" alt="Terceiro Melhor Macho Braford - Exposição Nacional 2024"
                             loading="lazy">
                     </div>
                     <div class="other-award-item" onclick="openOtherLightbox(3)">
-                        <img src="faconaco.jpeg"
+                        <img src="./faconaco.jpeg"
                             alt="Integrante do Trio Grande Campeão Terneiro Hereford PC - Nacional 2022" loading="lazy">
                     </div>
                     <div class="other-award-item" onclick="openOtherLightbox(4)">
-                        <img src="suprema-campea-rustica.jpg"
+                        <img src="./suprema-campea-rustica.jpg"
                             alt="Suprema Campeã Terneira Rústica - Exposição Nacional 2022" loading="lazy">
                     </div>
                     <div class="other-award-item" onclick="openOtherLightbox(5)">
-                        <img src="trio femeas.jpeg"
+                        <img src="./trio femeas.jpeg"
                             alt="Trio Grande Campeão Terneiras Hereford - Exposição Nacional 2022" loading="lazy">
                     </div>
                 </div>
@@ -4099,32 +4102,32 @@
         // Lightbox Gallery
         const galleryImages = [
             {
-                src: 'Trio PO.jpeg',
+                src: './Trio PO.jpeg',
                 title: 'Trio Grande Campeão Terneiros e Trio Grande Campeão Machos Hereford PO',
                 description: 'Exposição Nacional 2024 e Expointer 2024'
             },
             {
-                src: 'Homero.jpeg',
+                src: './Homero.jpeg',
                 title: 'Supremo Campeão Terneiro Rústico, Supremo Campeão Macho Rústico e Quarto Melhor Macho Argola Hereford PO',
                 description: 'Exposição Nacional 2024 e Expointer 2024/25'
             },
             {
-                src: 'Trio femeas PC.jpeg',
+                src: './Trio femeas PC.jpeg',
                 title: 'Trio Grande Campeão Terneiras Hereford',
                 description: 'Exposição Nacional 2024'
             },
             {
-                src: 'trio braford.jpeg',
+                src: './trio braford.jpeg',
                 title: 'Trio Reservado Grande Campeão Machos Braford',
                 description: 'Exposição Nacional 2024'
             },
             {
-                src: 'Renata.jpg',
+                src: './Renata.jpg',
                 title: 'Terceira Melhor Fêmea Braford',
                 description: 'Exposição Nacional 2023'
             },
             {
-                src: 'terceira-melhor-femea-2025.jpg',
+                src: './terceira-melhor-femea-2025.jpg',
                 title: 'Terceira Melhor Fêmea Rústica do Congresso Mundial Braford 2025',
                 description: 'e Reservada Grande Campeã Rústica da Expointer 2025'
             }
@@ -4192,32 +4195,32 @@
         // Gallery para "Entre outros..."
         const otherGalleryImages = [
             {
-                src: 'Helena.jpeg',
+                src: './Helena.jpeg',
                 title: 'Grande Campeã Terneira Hereford PO',
                 description: 'Exposição Nacional 2024'
             },
             {
-                src: 'trioGCpcnac23.jpeg',
+                src: './trioGCpcnac23.jpeg',
                 title: 'Trio Grande Campeão Hereford PC',
                 description: 'Exposição Nacional 2023'
             },
             {
-                src: 'braford3.jpeg',
+                src: './braford3.jpeg',
                 title: 'Terceiro Melhor Macho Braford',
                 description: 'Exposição Nacional 2024'
             },
             {
-                src: 'faconaco.jpeg',
+                src: './faconaco.jpeg',
                 title: 'Integrante do Trio Grande Campeão Terneiro Hereford PC',
                 description: 'Exposição Nacional 2022'
             },
             {
-                src: 'suprema-campea-rustica.jpg',
+                src: './suprema-campea-rustica.jpg',
                 title: 'Suprema Campeã Terneira Rústica',
                 description: 'Exposição Nacional 2022'
             },
             {
-                src: 'trio femeas.jpeg',
+                src: './trio femeas.jpeg',
                 title: 'Trio Grande Campeão Terneiras Hereford',
                 description: 'Exposição Nacional 2022'
             }
